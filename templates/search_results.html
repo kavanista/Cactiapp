@@ -1,0 +1,7 @@
+<html>
+<title>Search results</title>
+{% for result in results %}
+   <a href="{{url_for('item', item_id=result.listing_id)}}">{{result.title}}<a>
+   <br>
+{% endfor %}
+</html>

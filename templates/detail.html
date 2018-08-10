@@ -1,0 +1,10 @@
+<html>
+<title>Item detail</title>
+
+{% for item in results %}
+{% for key, value in item.items()%}
+    <p>Key: {{key}}<br>
+       Value: {{value}}<br>
+{% endfor %}
+{% endfor %}
+</html>
