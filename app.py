@@ -5,8 +5,6 @@ from flask import render_template
 
 app = Flask(__name__)
 
-API_KEY="dvt1acaf4bk548fdk8dxkhhb"
-#TERM="cactus"
 
 
 class EtsyClient(object):
