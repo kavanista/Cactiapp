@@ -1,5 +1,6 @@
 import requests
 import json
+from config import *
 from flask import Flask
 from flask import render_template
 
