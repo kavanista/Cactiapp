@@ -6,6 +6,7 @@ from flask import render_template
 
 app = Flask(__name__)
 
+search_term="cacti"
 
 
 class EtsyClient(object):
@@ -30,6 +31,9 @@ class EtsyClient(object):
     	return resp.json()
 
 		
+@app.route("/")
+def index():
+    return search(search_term)
 
 @app.route("/search/<keyword>")
 def search(keyword):
