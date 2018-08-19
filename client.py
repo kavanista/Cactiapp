@@ -1,7 +1,7 @@
 import requests
 
 
-API_KEY = 'oru4yxzoc36x15p4krgn5opo'
+API_KEY = '<KEY_HERE>'
 
 
 class EtsyClient(object):
