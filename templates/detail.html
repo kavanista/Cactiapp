@@ -6,8 +6,14 @@
   <body>
     <div class="section">
       <div class="container">
-        <h1 class="title">{{ shop.shop_name }}</h1>
-        <h2 class="subtitle">{{ shop.title }}</h2>
+        <h1 class="title">Shop Info</h1>
+        <h2 class="subtitle">{{ shop.shop_name }} - {{ shop.title }}</h2>
+        <a href="{{ url_for('save_shop', shop_id=shop.shop_id) }}"
+           class="button is-primary">Follow Shop</a>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
         <h1 class="title">{{ item.title }}</h1>
         <p>{{ item.description }}</p>
       </div>
