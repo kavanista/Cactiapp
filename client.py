@@ -20,17 +20,17 @@ class EtsyClient(object):
 
     def item(self, item_id):
     	url = self.BASE_URL + "listings/" + item_id
-    	item_results = self.http_get(url)
+    	item_results = self.http_get(url)['results'][0]
     	return item_results	
 
     def user(self, user_id):
         url = self.BASE_URL + '/users/{}/profile'.format(user_id)
-        user = self.http_get(url)
+        user = self.http_get(url)['results'][0]
         return user
     
     def shop(self, shop_id):
         url = self.BASE_URL + 'shops/{}'.format(shop_id)
-        return self.http_get(url)
+        return self.http_get(url)['results'][0]
 
     def shop_listings(self, shop_id):
         url = self.BASE_URL + 'shops/{}/listings/active'.format(shop_id)

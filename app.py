@@ -22,9 +22,11 @@ def search(keyword):
 
 @app.route("/detail/<item_id>")
 def item(item_id):
-	resp = EtsyClient().item(item_id)
-	results = resp["results"]
-	return render_template('detail.html', results=results)
+    client = EtsyClient()
+    item = client.item(item_id)
+    shop = client.shop(item['user_id'])
+    return render_template('detail.html', item=item, shop=shop)
+
 
 if __name__ == "__main__":
     app.run()

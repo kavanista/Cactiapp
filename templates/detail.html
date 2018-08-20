@@ -1,10 +1,16 @@
 <html>
-<title>Item detail</title>
-
-{% for item in results %}
-{% for key, value in item.items()%}
-    <p>Key: {{key}}<br>
-       Value: {{value}}<br>
-{% endfor %}
-{% endfor %}
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" />
+    <title>Item detail</title>
+  </head>
+  <body>
+    <div class="section">
+      <div class="container">
+        <h1 class="title">{{ shop.shop_name }}</h1>
+        <h2 class="subtitle">{{ shop.title }}</h2>
+        <h1 class="title">{{ item.title }}</h1>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </body>
 </html>
