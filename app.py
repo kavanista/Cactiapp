@@ -28,6 +28,12 @@ def item(item_id):
     shop = client.shop(item['user_id'])
     return render_template('detail.html', item=item, shop=shop)
 
+@app.route("/save-shop/<shop_id>")
+def save_shop(shop_id):
+    client = EtsyClient()
+    shop = client.shop(shop_id)
+    # Do Something to save the shop
+    return 'OK'
 
 MYSQL_HOST= os.getenv('MYSQL_HOST')
 MYSQL_USER= os.getenv('MYSQL_USER')
