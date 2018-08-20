@@ -1,12 +1,17 @@
 import requests
+import os
 
 
-API_KEY = '<KEY_HERE>'
+API_KEY = os.getenv('API_KEY')
 
 
 class EtsyClient(object):
 
     BASE_URL="https://openapi.etsy.com/v2/"
+
+    def __init__(self):
+        assert API_KEY is not None, 'Please define an API Key'
+        self.API_KEY = API_KEY
 
     def search(self, search_term):
         url = self.BASE_URL + "listings/active"
@@ -34,6 +39,6 @@ class EtsyClient(object):
     def http_get(self, url, params=None):
     	if params is None:
     		params = {}
-    	params["api_key"] = API_KEY
+    	params["api_key"] = self.API_KEY
     	resp = requests.get(url, params=params)
     	return resp.json()

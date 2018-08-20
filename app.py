@@ -1,6 +1,5 @@
 import requests
 import json
-from config import *
 from flask import Flask
 from flask import render_template
 from client import EtsyClient
@@ -8,6 +7,7 @@ from client import EtsyClient
 
 app = Flask(__name__)
 
+search_term = 'cacti'
 		
 @app.route("/")
 def index():
