@@ -1,4 +1,5 @@
 <html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" />
 <title>Search results</title>
 {% for result in results %}
    <a href="{{url_for('item', item_id=result.listing_id)}}">{{result.title}}<a>
