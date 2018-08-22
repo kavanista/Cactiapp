@@ -4,6 +4,7 @@ from flask import Flask
 from flask import render_template
 from client import EtsyClient
 import MySQLdb 
+import os
 
 
 app = Flask(__name__)
