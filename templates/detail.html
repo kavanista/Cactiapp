@@ -7,8 +7,9 @@
     <div class="section">
       <div class="container">
         <h1 class="title">Shop Info</h1>
-        <h2 class="subtitle">{{ shop.shop_name }} - {{ shop.title }}</h2>
-        <a href="{{ url_for('save_shop', shop_id=shop.shop_id) }}"
+        <h2 class="subtitle">{{ user.first_name }} - {{ user.last_name }}</h2>
+        <h2>{{ user }}</h2>
+        <a href="{{ url_for('save_user', user_id=user.user_id) }}"
            class="button is-primary">Follow Shop</a>
       </div>
     </div>

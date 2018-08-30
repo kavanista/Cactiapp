@@ -5,6 +5,7 @@ from flask import render_template
 from client import EtsyClient
 import MySQLdb 
 import os
+import database as db
 
 
 app = Flask(__name__)
@@ -26,25 +27,16 @@ def search(keyword):
 def item(item_id):
     client = EtsyClient()
     item = client.item(item_id)
-    shop = client.shop(item['user_id'])
-    return render_template('detail.html', item=item, shop=shop)
+    user = client.user(item['user_id'])
+    return render_template('detail.html', item=item, user=user)
 
-@app.route("/save-shop/<shop_id>")
-def save_shop(shop_id):
+@app.route("/save-user/<user_id>")
+def save_user(user_id):
     client = EtsyClient()
-    shop = client.shop(shop_id)
+    user = client.user(user_id)
+    db.save_user(user)
     # Do Something to save the shop
     return 'OK'
-
-MYSQL_HOST= os.getenv('MYSQL_HOST')
-MYSQL_USER= os.getenv('MYSQL_USER')
-MYSQL_PASSWORD= os.getenv('MYSQL_PASSWORD')
-DATABASE_NAME= os.getenv('DATABASE_NAME')
-
-def connectDB():
-    db = MySQLdb.connect(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,DATABASE_NAME)
-    return db
-
 
 if __name__ == "__main__":
     app.run()
